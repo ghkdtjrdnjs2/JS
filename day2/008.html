@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>참조변수</title>
+</head>
+<body>
+    <script>
+        // 기본타입 : undefined, number, string, boolean
+        let a = 10;
+        console.log(typeof a);
+
+        // 참조타입
+        // 1. 클래스를 이용해서 객체 만들기
+        let date = new Date();
+        console.log(date.getFullYear());
+
+        // 2. 이름과 값으로 객체 만들기
+        let tv = {
+            제조사 : '삼성',
+            크기 : 75,
+            가격 : 2000000
+        };
+        console.log(tv.제조사);
+
+        // 3. 아이디와 비빌번호로 구성된 객체를 생성
+        let 회원 = {
+            id : 'spring',
+            password : 1234
+        };
+    </script>
+</body>
+</html>
