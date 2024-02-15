@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        #target { height:100px; width: 100px; background-color: red; }
+    </style>
+</head>
+<body>
+    <div id="target">
+    </div>
+    <button id="change">원으로바꾸기</button>
+    <button id="rect" disabled>사각형으로</button>
+    <script>
+        // 버튼을 클릭하면 target의 border-radius를 100px로,
+        // 배경색은 blue로 변경하시오
+        // 1. 요소들을 선택
+        let $target = $('#target');
+        let $change = $('#change');
+        let $rect = $('#rect');
+        // 2.
+        $change.on('click',function(){
+            $target.css('border-radius', '100px').css('background-color', 'blue')
+            // disable, readonly는 값이 true/false
+            $change.attr('disabled',true);
+            $rect.attr('disabled', false);
+        });
+        $rect.on('click',function(){
+            $target.css('border-radius', '0px').css('background-color', 'red')
+            $change.attr('disabled',false);
+            $rect.attr('disabled', true);
+        })
+    </script>
+</body>
+</html>

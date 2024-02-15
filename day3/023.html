@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        #target {
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="target">
+    </div>
+    <div id="str">
+    </div>
+    <script>
+        let $target = $('#target');
+        let $str = $('#str');
+        $target.on('mousemove', function (e) {
+           // $target.on('mousedown', function (e) {
+
+            //}
+            // $target.on('mouseup', function (e) {
+                
+            //}
+            let x = e.pageX;
+            let y = e.pageY;
+            $str.text(`x좌표:${x}, y좌표:${y}`);
+        })
+
+    </script>
+</body>
+
+</html>
