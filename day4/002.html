@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <p id="target1">display</p>
+    <button id="none">display</button>
+    <hr>
+    <p id="target2">visibility</p>
+    <button id="hidden">visibility</button>
+    <script>
+        // display : none와 visibility : hidden 설명해라
+        let $target = $('#target1');
+        let $target2 = $('#target2');
+        let $none = $('#none');
+        let $hidden = $('#hidden');1
+
+        $none.on('click',function(){
+            $target.css('display', 'none');
+        })
+
+        $hidden.on('click',function(){
+            $target2.css('visibility', 'hidden');
+        });
+    </script>
+</body>
+</html>

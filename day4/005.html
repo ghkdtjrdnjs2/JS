@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <button id="good">추천</button>
+    <button id="bad">비추천</button>
+    <button id="delete">삭제</button>
+    <script>
+        let board = {
+            writer: 'spring',
+            loginId: 'spxxxx'
+        }
+        let $good = $('#good');
+        let $bad = $('#bad');
+        let $delete = $('#delete')
+
+        // 비로그인은 버튼이 안보이게
+        // 글쓴이는 삭제만 보이게
+        // 글쓴이가 아닌자는 추천, 비추천만 보이게
+
+        if (board.writer === board.loginId) {
+            $good.css('display', 'none');
+            $bad.css('display', 'none');
+        } 
+        else if (board.loginId == '') {
+            $good.hide();
+            $bad.hide();
+            $delete.hide();
+        }
+        else if (board.writer !== board.loginId) {
+            $good.css('display', 'block');
+            $bad.css('display', 'block');
+            $delete.css('display', 'none');
+        }
+    </script>
+</body>
+</html>

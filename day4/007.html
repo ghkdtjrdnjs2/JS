@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="target">
+
+    </div>
+    <script>
+        // 여러분이 좋아하는 것을 배열에 담아 #target에 출력하시오
+        let $target = $('#target');
+        let gun = ['ak47','aug','slr','sks','mk12','m4','beryl'];
+
+        for(let g of gun){
+            $target.append(`<p class="gun">${g}</p>`);
+        }
+        
+        // 여러개를 선택한 다음 구체적으로 어떤 놈인지 구별하려면
+        // alert($(this).text()+"")
+        $('.gun').on('click', function(){
+            alert($(this).text()+"를 선택했어요");
+        })
+    </script>
+
+</body>
+</html>
