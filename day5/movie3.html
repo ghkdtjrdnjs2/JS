@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <img id="img" style="height: 300px;">
+    <button id="change">사진 바꾸기</button>
+    <script>
+        let $change = $('#change');
+        let $img = $('#img');
+        
+        // 처음부터 사진을 나올 수 있게 해준다
+        function fetch(){
+            $.ajax({
+                url : 'https://dog.ceo/api/breeds/image/random',
+                success:function(result){
+                    $img.attr('src',result.message);
+                }
+            })
+        }
+        // 함수 호출
+        fetch();
+        // 클릭을 하면 fetch를 실행한다
+        $change.on('click, fetch')
+    </script>
+</body>
+</html>
