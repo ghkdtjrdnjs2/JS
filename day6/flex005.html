@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #app {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        main {
+            display: flex;
+            background-color: aqua;
+        }
+
+        header,
+        nav,
+        footer {
+            height: 50px;
+            border: 1px solid red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        aside {
+            width: 100px;
+            height: 200px;
+            background-color: green;
+        }
+
+        section {
+            width: 800px;
+            min-height: 600px;
+            background-color: blueviolet;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            letter-spacing: 1em;
+            padding: 0 20px;
+        }
+
+        nav {
+            background-color: black;
+            border-style: none;
+        }
+
+        header,
+        nav {
+            margin-bottom: 10px;
+        }
+
+        nav>ul {
+            display: flex;
+            list-style: none;
+
+        }
+
+        nav>ul>li {
+            width: 100px;
+            height: 50px;
+            background-color: blue;
+            margin: 1px;
+        }
+
+        nav>ul>li>a {
+            color: deeppink;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+        }
+
+        nav>ul>li>a:hover {
+            background-color: white;
+        }
+
+        #search {
+            width: 300px;
+            border: 1px solid red;
+            height: 30px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        #search input {
+            background-color: brown;
+            width: 250px;
+            margin-left: 20px;
+            margin-right: 10px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <h1>마크업</h1>
+            <div id="search">
+                <input type="text" placeholder="검색어를 입력하세요">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#">ㄱ</a></li>
+                <li><a href="#">ㄴ</a></li>
+                <li><a href="#">ㄷ</a></li>
+                <li><a href="#">ㄹ</a></li>
+            </ul>
+        </nav>
+        <main>
+            <aside>광고</aside>
+            <section>본문</section>
+            <aside>광고</aside>
+        </main>
+        <footer>꼬릿말</footer>
+    </div>
+</body>
+
+</html>

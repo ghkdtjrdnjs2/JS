@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>콜백 지옥</title>
+</head>
+<body>
+    <script>
+        // A->b->C 순서대로(동기) ajax가 실행돼야 한다면
+        // ajax는 원래 비동기 동기로 실행하려면 콜백지옥을 만들어준다
+        $.ajax({
+            url:'A',
+            success:function(){
+                // 성공했을 때 실행되는 함수
+                $.ajax({
+                    url:'B',
+                    success:function(){
+                        $.ajax({
+                            url:'C',
+                            success:function(){
+                                console.log('다 끝났다')
+                            }
+                        })
+                    }
+                })
+            }
+        });
+    </script>
+</body>
+</html>
