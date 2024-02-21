@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>Document</title>
+    <script>
+        // 버튼을 form을 submit한다? 검증 후 전송
+        $(document).ready(function(){
+            $('mvc').on('click',function(e){
+                e.preventDefault();
+                const username = $('#username').val();
+                const pwd = $('#pwd').val();
+                if(username==''|| pwd==''){
+                    alert('필수입력입닌다');
+                    return
+                }
+                $('#f1').submit();
+            })
+        })
+        // rest방식으로 한다면 아래와 같다 
+        // form 안에 mvc와 rest 방식 두개가 있을수 없다
+        $(document).ready(function(){
+            $('rest').on('click',function(e){
+                e.preventDefault();
+                const username = $('#username').val();
+                const pwd = $('#pwd').val();
+                if(username==''|| pwd==''){
+                    alert('필수입력입닌다');
+                    return
+                }
+                const params = {
+                    username:$('#username').val(),
+                    pwd:$('#pwd').val()
+                }
+                $.ajax({
+                    url:'xxx',
+                    method:'post',
+                    data: params,
+                    success:function(){
+
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <form id="f1" action="xxx" method="post">
+        <input type="text" id="username" name="username">
+        <input type="password" id="pwd" name="pwd">
+        <button id="mvc">mvc 보내기</button>
+        <button id="rest">rest 보내기</button>
+    </form>
+</body>
+</html>
