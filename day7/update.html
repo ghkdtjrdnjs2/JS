@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>Document</title>
+    <script>
+        // update.html?cno=??
+        $(document).ready(function () {
+            const searchParams = new URLSearchParams(location.search);
+            const cno = searchParams.get('cno');
+            if (cno == null) {
+                location.href = 'list.html';
+            }
+            $.ajax({
+                url: 'http://192.168.0.177:8081/read?cno=' + cno,
+                success: function (result) {
+                    // 화면을 출력
+                    // <td></td>    text
+                    // <input>      .val()
+                    $('#name').val(result.name);
+                    $('#address').val(result.address);
+                    $('#tel').val(result.tel);
+                    $('#photo').val('src', result.photo);
+                },
+                error(response) {
+                    alert(response.responseText);
+                    location.href = 'list.html';
+                }
+            });
+
+            $('#update').on('click', function (e) {
+                // 서버로 남길 값을 js 객체에 담아서 $.ajax
+                e.preventDefault();
+                const params = {
+                    cno: cno,
+                    name: $('#name').val(),
+                    address: $('#address').val(),
+                    tel: $('#tel').val()
+                }
+                console.log(params);
+                alert('')
+                $.ajax({
+                    url: 'http://192.168.0.177:8081/update',
+                    method: 'post',
+                    data: params,
+                    success: function () {
+                        location.href = "list.html"
+                    }
+                })
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <!--
+        일단 읽어온다
+        변경
+        삭제    
+    -->
+    <form>
+        <img id="photo">
+        이름 : <input type="text" id="photo"><br>
+        주소 : <input type="text" id="address"><br>
+        연락처 : <input type="text" id="tel"><br>
+        <button id="update">변경</button>
+    </form>
+</body>
+
+</html>

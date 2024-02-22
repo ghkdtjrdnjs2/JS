@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>Document</title>
+    <script>
+        // 파일을 포함하는 form-data를 처리하려면 FormData내장객체 사용
+        // FormData는 자바스크립트라서 자바랑 100퍼센트 호환이 안되기 때문에
+        // FormData는 자바스크립트를 쓰지 않는다 자바스크립트를 쓰려면 일련의 방법을 써야한다
+        $(document).ready(function () {
+            $('#update').on('click', function (e) {
+                e.preventDefault();
+                const formData = new FormData(document.getElementById('frm'));
+
+                
+                $.ajax({
+                    url: 'http://192.168.0.177:8081/write',
+                    method: 'post',
+                    // {irum:'spring', nai:'22'}->irum=spring&nai=22
+                    // 이 변환을 해주는 필드 : processData
+                    data: formData,
+                    processData: false,
+                    // 웹에서 데이터의 종류를 ContentType이라고 한다
+                    // 예를 들어 엑셀이면 "application/excel"
+                    // html인 경우 "text/html"
+                    // form-data에 대한 contentType이 $.ajax에서 false다
+                    contentType: false,
+                    success: function () {
+                        location.href = 'list.html';
+                    },
+                    error:function(xx){
+                        alert(xx.responseText);
+                    }
+                })
+            })
+        })
+
+    </script>
+</head>
+
+<body>
+    <form id="frm">
+        사진(선택임):<input type="file" id="photo" name="photo"><br>
+        이름:<input type="text" id="name" name="name"><br>
+        주소:<input type="text" id="address" name="address"><br>
+        연락처:<input type="text" id="tel" name="tel"><br>
+        <button id="update">변경</button>
+    </form>
+</body>
+
+</html>
